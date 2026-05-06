@@ -31,45 +31,49 @@ while True:
 
   if 0 <= l <= 1 and 0 <= a <= 1:
     break
-    
+
   else:
     print("Valores inválidos! Tente novamente.\n")
-  
+
 
 def draw_flat():
-    gl.glClearColor(r2, g2, b2)
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
     gl.glShadeModel(gl.GL_FLAT)
     gl.glBegin(gl.GL_QUADS)
     gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(l, a)
+    gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(l, -a)
+    gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(-l, -a)
+    gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(-l, a)
     gl.glEnd()
     gl.glFlush()
-  
+
 
 def draw_smooth():
-    gl.glClearColor(r2, g2, b2)
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
     gl.glShadeModel(gl.GL_SMOOTH)
     gl.glBegin(gl.GL_QUADS)
     gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(l, a)
+    rd_cor()
     gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(l, -a)
+    rd_cor()
     gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(-l, -a)
+    rd_cor()
     gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(-l, a)
     gl.glEnd()
     gl.glFlush()
 
 while True:
-  op = input("Escolha uma opção de randomização:\n1 - Flat\n2 - Smooth\n")
+  op = input("1 - Flat\n2 - Smooth\nEscolha uma opção de randomização:")
 
   if op == "1" or op == "2":
       break
@@ -80,14 +84,13 @@ while True:
 glut.glutInit()
 glut.glutInitDisplayMode(0)
 glut.glutCreateWindow("O Retângulo do caos")
-glut.glutReshapeWindow(512, 512)
+glut.glutReshapeWindow(1000, 1000)
 
 if op == "1":
     glut.glutDisplayFunc(draw_flat)
 
 elif op == "2":
     glut.glutDisplayFunc(draw_smooth)
-    
+
 glut.glutKeyboardFunc(teclado)
 glut.glutMainLoop()
-
