@@ -37,6 +37,8 @@ while True:
 
 
 def draw_flat():
+    gl.glClearColor(r2, g2, b2, 1.0)
+    
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
     gl.glShadeModel(gl.GL_FLAT)
@@ -54,6 +56,8 @@ def draw_flat():
 
 
 def draw_smooth():
+    gl.glClearColor(r2, g2, b2, 1.0)
+    
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
     gl.glShadeModel(gl.GL_SMOOTH)
