@@ -1,62 +1,82 @@
 import OpenGL.GL as gl
 import OpenGL.GLUT as glut
 import random as rd
+import sys
+import math
 
-r = 0
-g = 0
-b = 0
+r = rd.random()
+g = rd.random()
+b = rd.random()
 
-def rd_cor():
-  global r, g, b
-  r = rd.random()
-  g = rd.random()
-  b = rd.random()
+def cor():
+    global r, g, b
+    r = rd.random()
+    g = rd.random()
+    b = rd.random()
 
+def teclado(tecla, x, y):
+    if tecla == b'\x1b':
+        glut.glutDestroyWindow(glut.glutGetWindow())
+        sys.exit(0)
 
+def circulo(x, y, radiano, nseg=100):
+    gl.glBegin(gl.GL_TRIANGLE_FAN)
+    gl.glVertex2f(x, y)
+    
+    for i in range(nseg + 1):
+        ang = 2 * math.pi * i / nseg
+        gl.glVertex2f(x + math.cos(ang) * radiano, y + math.sin(ang) * radiano)
+
+    gl.glEnd()
+
+#falta corrigir os pontos
 def display():
   gl.glClearColor(1.0, 1.0, 1.0, 1.0)
   gl.glClear(gl.GL_COLOR_BUFFER_BIT)
-  gl.ShadeModel(gl.GL_SMOOTH)
+  gl.glShadeModel(gl.GL_FLAT)
+    
+  circulo(-0.5, 0.5, 0.2)
+
+  cor()
+
+  gl.glBegin(gl.GL_QUADS)
+  gl.glColor3f(r, g, b)
+  gl.glVertex2f(0.3, 0.3)
+  gl.glVertex2f(0.3, 0.7)
+  gl.glVertex2f(0.7, 0.7)
+  gl.glVertex2f(0.7, 0.3)
+  gl.glEnd()
+  gl.glFlush()
+
+  cor()
 
   gl.glBegin(gl.GL_TRIANGLES)
   gl.glColor3f(r, g, b)
-  gl.glVertex2f(1, 1)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(-1, 1)
-  rd_cor()
-  gl.Color3f(r, g, b)
-  gl.glVertex2f(1, -1)
+  gl.glVertex2f(-0.3, -0.3)
+  gl.glVertex2f(-0.3, -0.5)
+  gl.glVertex2f(-0.5, 0.3)
   gl.glEnd()
   gl.glFlush()
 
-  gl.glBegin(gl.GL_QUADS)
-  rd_cor()
+  cor()
+
+  gl.glBegin(gl.GL_POLYGON) #octogono
   gl.glColor3f(r, g, b)
-  gl.glVertex2f(2, 2)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex(2, -2)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(-2, -2)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(-2, 2)
+  gl.glVertex2f(0.7, 0.4)
+  gl.glVertex2f(0.7, 0.3)
+  gl.glVertex2f(0.8, 0.2)
+  gl.glVertex2f(0.9, 0.2)
+  gl.glVertex2f(1, 0.3)
+  gl.glVertex2f(1, 0.4)
+  gl.glVertex2f(0.9, 0.5)
+  gl.glVertex2f(0.8, 0.5)
   gl.glEnd()
   gl.glFlush()
-
-  gl.glBegin(gl.GL_POLYGON)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(3, 3)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(3, -3)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(-3, -3)
-  rd_cor()
-  gl.glColor3f(r, g, b)
-  gl.glVertex2f(-3, 3)
-  rd //continuando...
+  
+glut.glutInit()
+glut.glutInitDisplayMode(0)
+glut.glutCreateWindow("O painel das formas")
+glut.glutReshapeWindow(800, 800)
+glut.glutDisplayFunc(display)
+glut.glutKeyboardFunc(teclado)
+glut.glutMainLoop()
