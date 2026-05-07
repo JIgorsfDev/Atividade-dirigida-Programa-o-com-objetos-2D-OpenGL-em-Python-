@@ -1,6 +1,7 @@
 import OpenGL.GL as gl
 import OpenGL.GLUT as glut
 import random as rd
+import sys
 
 r1 = 1
 g1 = 1
@@ -24,6 +25,9 @@ def teclado(tecla, x, y):
     if tecla == b" ":
         rd_cor()
         glut.glutPostRedisplay()
+    elif tecla == b'\x1b':
+        glut.glutDestroyWindow(glut.glutGetWindow())
+        sys.exit(0)
 
 while True:
   l = float(input("Digite a largura do Retangulo (entre 0 e 1): "))
@@ -38,18 +42,15 @@ while True:
 
 def draw_flat():
     gl.glClearColor(r2, g2, b2, 1.0)
-    
+
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
     gl.glShadeModel(gl.GL_FLAT)
     gl.glBegin(gl.GL_QUADS)
     gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(l, a)
-    gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(l, -a)
-    gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(-l, -a)
-    gl.glColor3f(r1, g1, b1)
     gl.glVertex2f(-l, a)
     gl.glEnd()
     gl.glFlush()
@@ -57,7 +58,7 @@ def draw_flat():
 
 def draw_smooth():
     gl.glClearColor(r2, g2, b2, 1.0)
-    
+
     gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
     gl.glShadeModel(gl.GL_SMOOTH)
