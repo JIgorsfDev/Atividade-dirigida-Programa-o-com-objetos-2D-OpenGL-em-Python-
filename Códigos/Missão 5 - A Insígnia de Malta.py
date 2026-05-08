@@ -31,36 +31,36 @@ def desenharInsignia():
   gl.glColor3f(r, g, b)
 
   gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(-0.3, 0.5)
-  gl.glVertex2f(-0.1, 0.2)
+  gl.glVertex2f(0.3, 0.7)
+  gl.glVertex2f(0.0, 0.5)
+
+  gl.glVertex2f(-0.3, 0.7)
+  gl.glVertex2f(0.0, 0.5)
+  gl.glVertex2f(0.0, 0.0)
 
   gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(0.1, 0.2)
-  gl.glVertex2f(0.3, 0.5)
+  gl.glVertex2f(-0.7, 0.3)
+  gl.glVertex2f(-0.5, 0.0)
 
   gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(-0.5, 0.3)
-  gl.glVertex2f(-0.2, 0.1)
+  gl.glVertex2f(-0.5, 0.0)
+  gl.glVertex2f(-0.7, -0.3)
 
   gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(-0.2, -0.1)
-  gl.glVertex2f(-0.5, -0.3)
+  gl.glVertex2f(0.0, -0.5)
+  gl.glVertex2f(0.3, -0.7)
 
   gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(-0.1, -0.2)
-  gl.glVertex2f(-0.3, -0.5)
+  gl.glVertex2f(0.0, -0.5)
+  gl.glVertex2f(-0.3, -0.7)
 
   gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(0.1, -0.2)
-  gl.glVertex2f(0.3, -0.5)
+  gl.glVertex2f(0.7, 0.3)
+  gl.glVertex2f(0.5, 0.0)
 
   gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(0.2, 0.1)
-  gl.glVertex2f(0.5, 0.3)
-
-  gl.glVertex2f(0.0, 0.0)
-  gl.glVertex2f(0.2, -0.1)
-  gl.glVertex2f(0.5, -0.3)
+  gl.glVertex2f(0.5, 0.0)
+  gl.glVertex2f(0.7, -0.3)
 
   gl.glEnd()
 
