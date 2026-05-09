@@ -25,13 +25,13 @@ def teclado(tecla, x, y):
         sys.exit(0)
 
 
-def circulo(x, y, ray, nseg=100):
+def circulo(x, y, ray, nseg=100): #função proposta para desenhar o circulo
     gl.glBegin(gl.GL_TRIANGLE_FAN)
     gl.glVertex2f(x, y)
 
-    for i in range(nseg + 1):
-        ang = 2 * math.pi * i / nseg
-        gl.glVertex2f(x + math.cos(ang) * ray, y + math.sin(ang) * ray)
+    for i in range(nseg + 1): #esse for segmenta a figura original (triangle fan) para suavizar
+        ang = 2 * math.pi * i / nseg #aqui, fazemos a "conversão" de radiano para angulo 
+        gl.glVertex2f(x + math.cos(ang) * ray, y + math.sin(ang) * ray) 
 
     gl.glEnd()
 
