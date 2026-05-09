@@ -21,13 +21,13 @@ def teclado(tecla, x, y):
      glut.glutDestroyWindow(glut.glutGetWindow())
      sys.exit(0)
 
-def point(x, y, texto):
+def point(x, y, texto): #fiz pra ter o ponto marcando pela letra
    gl.glRasterPos2f(x, y)
 
    for l in texto:
       glut.glutBitmapCharacter(glut.GLUT_BITMAP_HELVETICA_18, ord(l))
 
-def vertex_point(x, y):
+def vertex_point(x, y): #fiz pra marcar com os pontos em questão
    gl.glPointSize(4)
 
    gl.glBegin(gl.GL_POINTS)
@@ -35,7 +35,7 @@ def vertex_point(x, y):
    gl.glVertex2f(x, y)
    gl.glEnd()
 
-def cartesian():
+def cartesian(): #pra ter o cartesiano
    gl.glColor3f(0, 0, 0)
 
    gl.glBegin(gl.GL_LINES)
@@ -45,7 +45,7 @@ def cartesian():
    gl.glVertex2f(0, 1)
    gl.glEnd()
 
-   point(-0.95, 0.03, 'X') #colocar exato em cima do eixo da ruim na formatação
+   point(-0.95, 0.03, 'X') #colocar exato em cima do eixo da ruim na formatação 
    point(0.93, 0.03, 'X') 
    point(0.03, -0.95, 'Y')
    point(0.03, 0.93, 'Y')
