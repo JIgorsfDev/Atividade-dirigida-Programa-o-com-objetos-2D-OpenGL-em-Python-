@@ -11,4 +11,5 @@ Complete todos os desafios e torne-se um verdadeiro **Mestre dos Guardiões da C
 - **IDE:** Replit
 - **Bibliotecas:** PyOpenGL (`GL` e `GLUT`)
 
+
 > “Que a GPU esteja com você.” ⚔️💻
