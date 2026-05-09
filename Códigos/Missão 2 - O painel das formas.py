@@ -66,7 +66,7 @@ def display():
 
     cor()
 
-    gl.glBegin(gl.GL_POLYGON)  # octogono -> se der tempo, "devo puxar ele mais pra perto do triângulo"
+    gl.glBegin(gl.GL_POLYGON)  # octogono 
     gl.glColor3f(r, g, b)
     gl.glVertex2f(0.6, 0.2)
     gl.glVertex2f(0.5, 0.1)
