@@ -27,20 +27,20 @@ def cor():
   g = rd.random()
   b = rd.random()
 
-def desenharEstrela(x, y, ray, r, g, b):
+def desenharEstrela(x, y, ray, r, g, b): 
    gl.glColor3f(r, g, b)
    gl.glBegin(gl.GL_POLYGON)
 
-   for i in range(20):
+   for i in range(20):  #cria os pontos do circulo
       angulo = 2 * math.pi * i / 20
       gl.glVertex2f(x + ray * math.cos(angulo), y + ray * math.sin(angulo))
 
    gl.glEnd()
 
-def addEstrela():
-   x = rd.uniform(-1, 1)
+def addEstrela(): 
+   x = rd.uniform(-1, 1) #gera posição aleatoria da estrela
    y = rd.uniform(-1, 1)
-   raio = rd.randint(10, 50) / 100.0
+   raio = rd.randint(10, 50) / 100.0 #com tamanho aleatório também
    cor()
    estrela.append((x, y, raio, r, g, b))
    glut.glutPostRedisplay()
@@ -96,7 +96,7 @@ def draw():
 
       desenharEstrela(x, y, ray, r1, g1, b1)
 
-   gl.glBegin(gl.GL_LINES)
+   gl.glBegin(gl.GL_LINES) #desenha as linhas ligando as estrelas
 
    for i in range(len(estrela) - 1):
       x1, y1, _, _, _, _ = estrela[i]
