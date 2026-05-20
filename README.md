@@ -1,4 +1,4 @@
-# Atividade dirigida: OpenGL em Python
+# Atividade dirigida: OpenGL 2D em Python
 
 ## 🌌 A Ordem dos Guardiões Gráficos
 
